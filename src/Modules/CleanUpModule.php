@@ -41,21 +41,16 @@ class CleanUpModule extends AbstractModule
         }
 
         foreach ([
+            'adjacent_posts_rel_link_wp_head',
+            'rest_output_link_wp_head',
             'rsd_link',
             'wlwmanifest_link',
             'wp_generator',
             'wp_oembed_add_discovery_links',
             'wp_oembed_add_host_js',
+            'wp_shortlink_wp_head',
         ] as $hook) {
             remove_filter('wp_head', $hook);
-        }
-
-        foreach ([
-            'adjacent_posts_rel_link_wp_head',
-            'wp_shortlink_wp_head',
-            'rest_output_link_wp_head',
-        ] as $hook) {
-            remove_filter('wp_head', $hook, 20);
         }
 
         add_filter('get_bloginfo_rss', fn ($value) => ! Str::is($value, __('Just another WordPress site')) ? $value : '');
