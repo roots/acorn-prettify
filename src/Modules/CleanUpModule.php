@@ -8,11 +8,6 @@ use Roots\AcornPretty\Document;
 class CleanUpModule extends AbstractModule
 {
     /**
-     * The module key.
-     */
-    protected string $key = 'clean-up';
-
-    /**
      * Handle the module.
      */
     public function handle(): void

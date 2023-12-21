@@ -5,11 +5,6 @@ namespace Roots\AcornPretty\Modules;
 class NiceSearchModule extends AbstractModule
 {
     /**
-     * The module key.
-     */
-    protected string $key = 'nice-search';
-
-    /**
      * The default search endpoint.
      */
     protected string $defaultEndpoint = '/?s=';

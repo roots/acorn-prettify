@@ -7,11 +7,6 @@ use Illuminate\Support\Str;
 class RelativeUrlsModule extends AbstractModule
 {
     /**
-     * The module key.
-     */
-    protected string $key = 'relative-urls';
-
-    /**
      * Determine if the module is enabled.
      */
     protected function enabled(): bool

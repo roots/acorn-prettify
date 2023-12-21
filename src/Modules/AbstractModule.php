@@ -3,6 +3,7 @@
 namespace Roots\AcornPretty\Modules;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Roots\Acorn\Application;
 use Roots\AcornPretty\Contracts\Module;
 
@@ -14,11 +15,6 @@ abstract class AbstractModule implements Module
     protected Application $app;
 
     /**
-     * The module key.
-     */
-    protected string $key = '';
-
-    /**
      * The module config.
      */
     protected Collection $config;
@@ -28,14 +24,8 @@ abstract class AbstractModule implements Module
      */
     public function __construct(Application $app, Collection $config)
     {
-        if (empty($this->key)) {
-            throw new LifecycleException(
-                sprintf('Module %s is missing the key property.', get_class($this))
-            );
-        }
-
         $this->app = $app;
-        $this->config = $config->get($this->key);
+        $this->config = $config->get($this->getKey());
 
         $this->boot();
     }
@@ -69,6 +59,19 @@ abstract class AbstractModule implements Module
     {
         return $this->config->get('enabled', false) &&
             (! is_admin() || wp_doing_ajax());
+    }
+
+    /**
+     * Get the module key.
+     */
+    protected function getKey(): string
+    {
+        $class = get_class($this);
+
+        return Str::of($class)
+            ->afterLast('\\')
+            ->beforeLast('Module')
+            ->snake('-');
     }
 
     /**
