@@ -69,11 +69,17 @@ class NiceSearchModule extends AbstractModule implements Module
     }
 
     /**
-     * Handle compatibility for third party plugins.
-     *
-     * @return void
+     * Handle compatibility with third-party plugins.
      */
     protected function handleCompatibility(): self
+    {
+        return $this->handleYoastSeo();
+    }
+
+    /**
+     * Handle Yoast SEO compatibility.
+     */
+    protected function handleYoastSeo(): self
     {
         $this->filter('wpseo_json_ld_search_url', 'rewriteUrl');
 
