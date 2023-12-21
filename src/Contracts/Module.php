@@ -6,8 +6,6 @@ interface Module
 {
     /**
      * Handle the module.
-     *
-     * @return array
      */
-    public function handle();
+    public function handle(): void;
 }

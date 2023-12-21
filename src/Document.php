@@ -12,25 +12,20 @@ class Document
 {
     /**
      * The DOMDocument instance.
-     *
-     * @var DOMDocument
      */
-    protected $document;
+    protected DOMDocument $document;
 
     /**
      * The XML encoding tag.
-     *
-     * @var string
      */
-    protected $encoding = '<?xml encoding="UTF-8">';
+    protected string $encoding = '<?xml encoding="UTF-8">';
 
     /**
      * Create a new DOM instance.
      *
-     * @param  string  $html
      * @return void
      */
-    public function __construct($html)
+    public function __construct(string $html)
     {
         $this->document = new DOMDocument();
 
@@ -46,10 +41,8 @@ class Document
 
     /**
      * Make a new DOM instance.
-     *
-     * @param  string  $html
      */
-    public static function make($html): self
+    public static function make(string $html): self
     {
         return new static($html);
     }
@@ -86,23 +79,16 @@ class Document
 
     /**
      * Call methods on the root document.
-     *
-     * @param  string  $name
-     * @param  array  $arguments
-     * @return mixed
      */
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments): mixed
     {
         return $this->document->{$name}(...$arguments);
     }
 
     /**
      * Get properties from the root document.
-     *
-     * @param  string  $name
-     * @return mixed
      */
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         return $this->document->{$name};
     }

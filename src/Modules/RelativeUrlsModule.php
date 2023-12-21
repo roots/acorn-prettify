@@ -3,9 +3,8 @@
 namespace Roots\AcornPretty\Modules;
 
 use Illuminate\Support\Str;
-use Roots\AcornPretty\Contracts\Module;
 
-class RelativeUrlsModule extends AbstractModule implements Module
+class RelativeUrlsModule extends AbstractModule
 {
     /**
      * The module key.
@@ -40,11 +39,8 @@ class RelativeUrlsModule extends AbstractModule implements Module
 
     /**
      * Convert an absolute URL to a relative URL.
-     *
-     * @param  string  $url
-     * @return string
      */
-    public function relativeUrl($url)
+    public function relativeUrl(string $url): string
     {
         if (is_feed()) {
             return $url;
@@ -63,7 +59,7 @@ class RelativeUrlsModule extends AbstractModule implements Module
      * @param  string[]  $sources
      * @return string[]
      */
-    public function imageSrcset($sources)
+    public function imageSrcset(string|array $sources): string|array
     {
         if (! is_array($sources)) {
             return $sources;
@@ -107,13 +103,8 @@ class RelativeUrlsModule extends AbstractModule implements Module
 
     /**
      * Determine if two URLs contain the same base URL.
-     *
-     * @param  string  $baseUrl
-     * @param  string  $inputUrl
-     * @param  bool  $strict
-     * @return bool
      */
-    protected function compareBaseUrl($baseUrl, $inputUrl, $strict = true)
+    protected function compareBaseUrl(string $baseUrl, string $inputUrl, bool $strict = true): bool
     {
         $baseUrl = trailingslashit($baseUrl);
         $inputUrl = trailingslashit($inputUrl);

@@ -3,10 +3,9 @@
 namespace Roots\AcornPretty\Modules;
 
 use Illuminate\Support\Str;
-use Roots\AcornPretty\Contracts\Module;
 use Roots\AcornPretty\Document;
 
-class CleanUpModule extends AbstractModule implements Module
+class CleanUpModule extends AbstractModule
 {
     /**
      * The module key.
@@ -147,10 +146,8 @@ class CleanUpModule extends AbstractModule implements Module
 
     /**
      * Disable recent comments CSS.
-     *
-     * @return self
      */
-    protected function handleDisableRecentCommentsCss()
+    protected function handleDisableRecentCommentsCss(): self
     {
         if (! $this->config->get('disable-recent-comments-css')) {
             return $this;
@@ -205,12 +202,8 @@ class CleanUpModule extends AbstractModule implements Module
 
     /**
      * Add and remove body_class() classes.
-     *
-     * @param  array  $classes
-     * @param  array  $disallowedClasses
-     * @return array
      */
-    public function bodyClass($classes, $disallowedClasses = ['page-template-default'])
+    public function bodyClass(array $classes, array $disallowedClasses = ['page-template-default']): array
     {
         if (is_single() || is_page() && ! is_front_page()) {
             if (! in_array($slug = basename(get_permalink()), $classes, true)) {
@@ -230,10 +223,8 @@ class CleanUpModule extends AbstractModule implements Module
 
     /**
      * Clean up language_attributes() used in <html> tag.
-     *
-     * @return string
      */
-    public function languageAttributes()
+    public function languageAttributes(): string
     {
         $attributes = [];
 
@@ -252,11 +243,8 @@ class CleanUpModule extends AbstractModule implements Module
 
     /**
      * Remove self-closing tags.
-     *
-     * @param  string|string[]  $html
-     * @return string|string[]
      */
-    public function removeSelfClosingTags($html)
+    public function removeSelfClosingTags(string|array $html): string|array
     {
         return str_replace(' />', '>', $html);
     }

@@ -2,9 +2,7 @@
 
 namespace Roots\AcornPretty\Modules;
 
-use Roots\AcornPretty\Contracts\Module;
-
-class NiceSearchModule extends AbstractModule implements Module
+class NiceSearchModule extends AbstractModule
 {
     /**
      * The module key.
