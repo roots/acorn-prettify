@@ -21,9 +21,7 @@ class Document
     protected string $encoding = '<?xml encoding="UTF-8">';
 
     /**
-     * Create a new DOM instance.
-     *
-     * @return void
+     * Initialize the Document instance.
      */
     public function __construct(string $html)
     {
@@ -40,7 +38,7 @@ class Document
     }
 
     /**
-     * Make a new DOM instance.
+     * Make a new instance of the Document.
      */
     public static function make(string $html): self
     {
@@ -48,11 +46,9 @@ class Document
     }
 
     /**
-     * Executes callback on each DOMElement.
-     *
-     * @param  callable  $callback
+     * Loop through each node in the document and execute the provided callback.
      */
-    public function each($callback): self
+    public function each(callable $callback): self
     {
         foreach ($this->xpath('//*') as $node) {
             $callback($node);
@@ -62,7 +58,7 @@ class Document
     }
 
     /**
-     * Evaluates the given XPath expression.
+     * Evaluate the given XPath expression.
      */
     public function xpath(string $expression): DOMNodeList
     {
@@ -78,7 +74,7 @@ class Document
     }
 
     /**
-     * Call methods on the root document.
+     * Call the given method on the root document.
      */
     public function __call(string $name, array $arguments): mixed
     {
@@ -86,7 +82,7 @@ class Document
     }
 
     /**
-     * Get properties from the root document.
+     * Get the given property from the root document.
      */
     public function __get(string $name): mixed
     {
