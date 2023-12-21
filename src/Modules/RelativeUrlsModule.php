@@ -87,9 +87,7 @@ class RelativeUrlsModule extends AbstractModule implements Module
     }
 
     /**
-     * Add compatibility with third-party plugins.
-     *
-     * @return void
+     * Handle compatibility with third-party plugins.
      */
     protected function handleCompatibility(): self
     {
@@ -97,9 +95,7 @@ class RelativeUrlsModule extends AbstractModule implements Module
     }
 
     /**
-     * Add The SEO Framework compatibility.
-     *
-     * @return void
+     * Handle The SEO Framework compatibility.
      */
     protected function handleSeoFramework(): self
     {

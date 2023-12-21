@@ -231,7 +231,7 @@ class CleanUpModule extends AbstractModule implements Module
     /**
      * Clean up language_attributes() used in <html> tag.
      *
-     * @return void
+     * @return string
      */
     public function languageAttributes()
     {
