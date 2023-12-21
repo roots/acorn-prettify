@@ -78,7 +78,8 @@ return [
     | Relative URLs
     |--------------------------------------------------------------------------
     |
-    | Enabling this option will convert absolute URLs to relative URLs.
+    | Enabling this option will convert absolute URLs to relative URLs within
+    | the specified hooks.
     |
     */
 
