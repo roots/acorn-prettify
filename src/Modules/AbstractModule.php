@@ -41,6 +41,14 @@ abstract class AbstractModule implements Module
     }
 
     /**
+     * Make a new instance of the module.
+     */
+    public static function make(Application $app, Collection $config): self
+    {
+        return new static($app, $config);
+    }
+
+    /**
      * Boot the module.
      */
     protected function boot(): void

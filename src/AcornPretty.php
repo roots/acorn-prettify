@@ -41,7 +41,7 @@ class AcornPretty
 
         add_filter('init', fn () => collect($this->modules)
             ->reject(fn ($module) => $module instanceof AbstractModule)
-            ->each(fn ($module) => new $module($this->app, $this->config))
+            ->each(fn ($module) => $module::make($this->app, $this->config))
         );
     }
 }
