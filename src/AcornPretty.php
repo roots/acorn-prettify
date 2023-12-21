@@ -4,6 +4,7 @@ namespace Roots\AcornPretty;
 
 use Illuminate\Support\Collection;
 use Roots\Acorn\Application;
+use Roots\AcornPretty\Modules\AbstractModule;
 
 class AcornPretty
 {
