@@ -31,7 +31,7 @@ class NiceSearchModule extends AbstractModule
     /**
      * Redirect query string search results to the pretty URL.
      */
-    public function handleRedirect(): self
+    protected function handleRedirect(): self
     {
         add_filter('template_redirect', function () {
             global $wp_rewrite;

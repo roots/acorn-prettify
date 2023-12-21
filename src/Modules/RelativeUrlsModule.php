@@ -33,6 +33,25 @@ class RelativeUrlsModule extends AbstractModule
     }
 
     /**
+     * Handle compatibility with third-party plugins.
+     */
+    protected function handleCompatibility(): self
+    {
+        return $this->handleSeoFramework();
+    }
+
+    /**
+     * Handle The SEO Framework compatibility.
+     */
+    protected function handleSeoFramework(): self
+    {
+        add_filter('the_seo_framework_do_before_output', fn () => $this->removeFilter('wp_get_attachment_url', 'relativeUrl'));
+        add_filter('the_seo_framework_do_after_output', fn () => $this->filter('wp_get_attachment_url', 'relativeUrl'));
+
+        return $this;
+    }
+
+    /**
      * Convert an absolute URL to a relative URL.
      */
     public function relativeUrl(string $url): string
@@ -50,9 +69,6 @@ class RelativeUrlsModule extends AbstractModule
 
     /**
      * Convert multiple URL sources to relative URLs.
-     *
-     * @param  string[]  $sources
-     * @return string[]
      */
     public function imageSrcset(string|array $sources): string|array
     {
@@ -69,31 +85,10 @@ class RelativeUrlsModule extends AbstractModule
 
     /**
      * List of URL hooks to be filtered by this module
-     *
-     * @return string[]
      */
     protected function urlFilters(): array
     {
         return $this->config->get('hooks', []);
-    }
-
-    /**
-     * Handle compatibility with third-party plugins.
-     */
-    protected function handleCompatibility(): self
-    {
-        return $this->handleSeoFramework();
-    }
-
-    /**
-     * Handle The SEO Framework compatibility.
-     */
-    protected function handleSeoFramework(): self
-    {
-        add_filter('the_seo_framework_do_before_output', fn () => $this->removeFilter('wp_get_attachment_url', 'relativeUrl'));
-        add_filter('the_seo_framework_do_after_output', fn () => $this->filter('wp_get_attachment_url', 'relativeUrl'));
-
-        return $this;
     }
 
     /**
