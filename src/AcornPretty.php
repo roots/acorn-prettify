@@ -30,7 +30,6 @@ class AcornPretty
     /**
      * Create a new Acorn Pretty instance.
      *
-     * @param  array  $config
      * @return void
      */
     public function __construct(Application $app)
