@@ -37,7 +37,7 @@ class AcornPretty
         $this->app = $app;
         $this->config = collect(
             $this->app->config->get('pretty')
-        )->map(fn ($value) => is_array($value) ? collect($value) : $value);
+        )->map(fn ($value) => collect($value));
 
         add_filter('init', fn () => collect($this->modules)
             ->reject(fn ($module) => $module instanceof AbstractModule)
