@@ -86,7 +86,7 @@ return [
         /**
          * Enable relative URLs.
          */
-        'enabled' => true,
+        'enabled' => false,
 
         /**
          * The hooks to filter.
