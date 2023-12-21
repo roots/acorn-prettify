@@ -8,7 +8,7 @@ Acorn Pretty contains a collection of modules to apply theme-agnostic front-end 
 
 ## Requirements
 
-- [PHP] >= 8.1
+- [PHP](https://secure.php.net/manual/en/install.php) >= 8.1
 - [Acorn](https://github.com/roots/acorn) >= 3.0
 
 ## Installation
