@@ -56,8 +56,8 @@ class NiceSearchModule extends AbstractModule implements Module
 
             if (
                 is_search() &&
-                str_contains($request, "/{$wp_rewrite->search_base}/") &&
-                str_contains($request, '&')
+                ! str_contains($request, "/{$wp_rewrite->search_base}/") &&
+                ! str_contains($request, '&')
             ) {
                 if (wp_safe_redirect(get_search_link())) {
                     exit;
