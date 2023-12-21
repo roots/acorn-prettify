@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Clean up
+    | Clean Up
     |--------------------------------------------------------------------------
     |
     | Enabling this option will remove unnecessary <link>'s, inline CSS and JS
-    | from WP emoji support, inline CSS used by Recent Comments widget, inline
-    | CSS used by posts with galleries, and self-closing tags.
+    | from WP emoji support, inline CSS used by the Recent Comments widget,
+    | inline CSS used by posts with galleries, and self-closing tags.
     |
     */
 
