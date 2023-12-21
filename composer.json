@@ -1,0 +1,41 @@
+{
+  "name": "roots/acorn-pretty",
+  "type": "package",
+  "description": "Theme-agnostic front-end modifications for WordPress",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Brandon Nifong",
+      "email": "brandon@tendency.me",
+      "homepage": "https://github.com/log1x"
+    },
+    {
+      "name": "Ben Word",
+      "email": "ben@benword.com",
+      "homepage": "https://github.com/retlehs"
+    },
+    {
+      "name": "QWp6t",
+      "email": "craig@roots.io",
+      "homepage": "https://github.com/qwp6t"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Roots\\AcornPretty\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.13"
+  },
+  "extra": {
+    "acorn": {
+      "providers": [
+        "Roots\\AcornPretty\\AcornPrettyServiceProvider"
+      ]
+    }
+  }
+}
