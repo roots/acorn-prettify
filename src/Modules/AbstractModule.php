@@ -21,7 +21,7 @@ abstract class AbstractModule implements Module
     /**
      * The module config.
      */
-    protected $config;
+    protected Collection $config;
 
     /**
      * Initialize the Module instance.
