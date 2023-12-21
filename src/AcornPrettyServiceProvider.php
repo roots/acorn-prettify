@@ -29,7 +29,7 @@ class AcornPrettyServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/pretty.php' => $this->app->configPath('pretty.php'),
-        ], 'config');
+        ], 'acorn-pretty-config');
 
         $this->app->make('Roots\AcornPretty');
     }
