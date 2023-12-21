@@ -2,6 +2,7 @@
 
 namespace Roots\AcornPretty;
 
+use Illuminate\Support\Collection;
 use Roots\Acorn\Application;
 use Roots\AcornPretty\Modules\AbstractModule;
 use Roots\AcornPretty\Modules\CleanUpModule;
@@ -12,24 +13,20 @@ class AcornPretty
 {
     /**
      * The Application instance.
-     *
-     * @var \Roots\Acorn\Application
      */
-    protected $app;
+    protected Application $app;
 
     /**
      * The package configuration.
      *
      * @var array
      */
-    protected $config;
+    protected Collection $config;
 
     /**
      * The Acorn Pretty modules.
-     *
-     * @var array
      */
-    protected $modules = [
+    protected array $modules = [
         CleanUpModule::class,
         NiceSearchModule::class,
         RelativeUrlsModule::class,
