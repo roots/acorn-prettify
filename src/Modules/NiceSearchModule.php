@@ -1,18 +1,18 @@
 <?php
 
-namespace Roots\AcornPretty\Modules;
+namespace Roots\AcornPrettify\Modules;
 
 class NiceSearchModule extends AbstractModule
 {
     /**
-     * The default search endpoint.
+     * The seach query string.
      */
-    protected string $defaultEndpoint = '/?s=';
+    protected string $query = '/?s=';
 
     /**
-     * The pretty search endpoint.
+     * The search slug.
      */
-    protected string $prettyEndpoint = '/search/';
+    protected string $slug = '/search/';
 
     /**
      * Handle the module.
@@ -29,7 +29,7 @@ class NiceSearchModule extends AbstractModule
     }
 
     /**
-     * Redirect query string search results to the pretty URL.
+     * Redirect query string search results to the search slug.
      */
     protected function handleRedirect(): self
     {
@@ -80,13 +80,13 @@ class NiceSearchModule extends AbstractModule
     }
 
     /**
-     * Rewrite the search query string to a pretty URL.
+     * Rewrite the search query string to a slug.
      */
     public function rewriteUrl(string $url): string
     {
         return str_replace(
-            $this->defaultEndpoint,
-            $this->prettyEndpoint,
+            $this->query,
+            $this->slug,
             $url
         );
     }

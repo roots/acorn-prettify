@@ -1,10 +1,10 @@
-# Acorn Pretty
+# Acorn Prettify
 
-![Latest Stable Version](https://img.shields.io/packagist/v/roots/acorn-pretty.svg?style=flat-square)
-![Total Downloads](https://img.shields.io/packagist/dt/roots/acorn-pretty.svg?style=flat-square)
-![Build Status](https://img.shields.io/github/actions/workflow/status/roots/acorn-pretty/main.yml?branch=main&style=flat-square)
+![Latest Stable Version](https://img.shields.io/packagist/v/roots/acorn-prettify.svg?style=flat-square)
+![Total Downloads](https://img.shields.io/packagist/dt/roots/acorn-prettify.svg?style=flat-square)
+![Build Status](https://img.shields.io/github/actions/workflow/status/roots/acorn-prettify/main.yml?branch=main&style=flat-square)
 
-Acorn Pretty contains a collection of modules to apply theme-agnostic front-end modifications to your Acorn-powered WordPress sites.
+Acorn Prettify contains a collection of modules to apply theme-agnostic front-end modifications to your Acorn-powered WordPress sites.
 
 ## Requirements
 
@@ -16,7 +16,7 @@ Acorn Pretty contains a collection of modules to apply theme-agnostic front-end 
 Install via Composer:
 
 ```sh
-$ composer require roots/acorn-pretty
+$ composer require roots/acorn-prettify
 ```
 
 ## Getting Started
@@ -24,18 +24,18 @@ $ composer require roots/acorn-pretty
 Start by publishing the package configuration:
 
 ```sh
-$ php artisan vendor:publish --tag=acorn-pretty-config
+$ php artisan vendor:publish --tag=acorn-prettify-config
 ```
 
-Review the published config file to get an understanding of the optimizations that Acorn Pretty has enabled out of the box.
+Review the published config file to get an understanding of the optimizations that Acorn Prettify has enabled out of the box.
 
 ## Usage
 
-Acorn Pretty immediately begins working with a sane set of defaults once installed in your Acorn project.
+Acorn Prettify immediately begins working with a sane set of defaults once installed in your Acorn project.
 
 ## Bug Reports
 
-If you discover a bug in Acorn Pretty, please [open an issue](https://github.com/roots/acorn-pretty/issues).
+If you discover a bug in Acorn Prettify, please [open an issue](https://github.com/roots/acorn-prettify/issues).
 
 ## Contributing
 
@@ -43,4 +43,4 @@ Contributing whether it be through PRs, reporting an issue, or suggesting an ide
 
 ## License
 
-Acorn Pretty is provided under the [MIT License](LICENSE.md).
+Acorn Prettify is provided under the [MIT License](LICENSE.md).

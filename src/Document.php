@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\AcornPretty;
+namespace Roots\AcornPrettify;
 
 use DOMDocument;
 use DOMNodeList;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\AcornPretty\Modules;
+namespace Roots\AcornPrettify\Modules;
 
 use Illuminate\Support\Str;
 

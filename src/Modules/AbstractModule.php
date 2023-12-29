@@ -1,11 +1,11 @@
 <?php
 
-namespace Roots\AcornPretty\Modules;
+namespace Roots\AcornPrettify\Modules;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Roots\Acorn\Application;
-use Roots\AcornPretty\Contracts\Module;
+use Roots\AcornPrettify\Contracts\Module;
 
 abstract class AbstractModule implements Module
 {

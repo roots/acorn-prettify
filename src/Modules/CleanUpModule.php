@@ -1,9 +1,9 @@
 <?php
 
-namespace Roots\AcornPretty\Modules;
+namespace Roots\AcornPrettify\Modules;
 
 use Illuminate\Support\Str;
-use Roots\AcornPretty\Document;
+use Roots\AcornPrettify\Document;
 
 class CleanUpModule extends AbstractModule
 {

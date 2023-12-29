@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\AcornPretty\Contracts;
+namespace Roots\AcornPrettify\Contracts;
 
 interface Module
 {

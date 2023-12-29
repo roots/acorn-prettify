@@ -1,5 +1,5 @@
 {
-  "name": "roots/acorn-pretty",
+  "name": "roots/acorn-prettify",
   "type": "package",
   "description": "Theme-agnostic front-end modifications for WordPress",
   "license": "MIT",
@@ -22,7 +22,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Roots\\AcornPretty\\": "src/"
+      "Roots\\AcornPrettify\\": "src/"
     }
   },
   "require": {
@@ -34,7 +34,7 @@
   "extra": {
     "acorn": {
       "providers": [
-        "Roots\\AcornPretty\\AcornPrettyServiceProvider"
+        "Roots\\AcornPrettify\\AcornPrettifyServiceProvider"
       ]
     }
   }

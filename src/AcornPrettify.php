@@ -1,12 +1,12 @@
 <?php
 
-namespace Roots\AcornPretty;
+namespace Roots\AcornPrettify;
 
 use Illuminate\Support\Collection;
 use Roots\Acorn\Application;
-use Roots\AcornPretty\Modules\AbstractModule;
+use Roots\AcornPrettify\Modules\AbstractModule;
 
-class AcornPretty
+class AcornPrettify
 {
     /**
      * The Application instance.
@@ -19,7 +19,7 @@ class AcornPretty
     protected Collection $config;
 
     /**
-     * The Acorn Pretty modules.
+     * The Acorn Prettify modules.
      */
     protected array $modules = [
         Modules\CleanUpModule::class,
@@ -28,7 +28,7 @@ class AcornPretty
     ];
 
     /**
-     * Create a new Acorn Pretty instance.
+     * Create a new Acorn Prettify instance.
      *
      * @return void
      */
@@ -36,12 +36,20 @@ class AcornPretty
     {
         $this->app = $app;
         $this->config = collect(
-            $this->app->config->get('pretty')
+            $this->app->config->get('prettify', [])
         )->map(fn ($value) => collect($value));
 
         add_filter('init', fn () => collect($this->modules)
             ->reject(fn ($module) => $module instanceof AbstractModule)
             ->each(fn ($module) => $module::make($this->app, $this->config))
         );
+    }
+
+    /**
+     * Make a new instance of the Acorn Prettify.
+     */
+    public static function make(Application $app): self
+    {
+        return new static($app);
     }
 }
