@@ -85,9 +85,25 @@ class NiceSearchModule extends AbstractModule
     public function rewriteUrl(string $url): string
     {
         return str_replace(
-            $this->query,
-            $this->slug,
+            $this->getQuery(),
+            $this->getSlug(),
             $url
         );
+    }
+
+    /**
+     * Get the search query string.
+     */
+    public function getQuery(): string
+    {
+        return $this->query;
+    }
+
+    /**
+     * Get the search slug.
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
 }
