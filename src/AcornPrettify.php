@@ -46,7 +46,7 @@ class AcornPrettify
     }
 
     /**
-     * Make a new instance of the Acorn Prettify.
+     * Make a new instance of Acorn Prettify.
      */
     public static function make(Application $app): self
     {
