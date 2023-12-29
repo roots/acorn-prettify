@@ -5,7 +5,7 @@ namespace Roots\AcornPrettify\Modules;
 class NiceSearchModule extends AbstractModule
 {
     /**
-     * The seach query string.
+     * The search query string.
      */
     protected string $query = '/?s=';
 
