@@ -24,7 +24,7 @@ $ composer require roots/acorn-prettify
 Start by publishing the package configuration:
 
 ```sh
-$ php artisan vendor:publish --tag=acorn-prettify-config
+$ wp acorn vendor:publish --tag=prettify-config
 ```
 
 Review the published config file to get an understanding of the optimizations that Acorn Prettify has enabled out of the box.
