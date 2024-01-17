@@ -3,10 +3,13 @@
 namespace Roots\AcornPrettify\Modules;
 
 use Illuminate\Support\Str;
+use Roots\AcornPrettify\Concerns\HasCollection;
 use Roots\AcornPrettify\Document;
 
 class CleanUpModule extends AbstractModule
 {
+    use HasCollection;
+
     /**
      * Handle the module.
      */
@@ -205,7 +208,7 @@ class CleanUpModule extends AbstractModule
             $disallowedClasses[] = 'page-id-'.get_option('page_on_front');
         }
 
-        return collect($classes)
+        return $this->collect($classes)
             ->diff($disallowedClasses)
             ->values()
             ->all();
