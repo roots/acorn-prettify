@@ -5,7 +5,6 @@ namespace Roots\AcornPrettify;
 use DOMDocument;
 use DOMNodeList;
 use DOMXPath;
-use Exception;
 use Illuminate\Support\Str;
 
 class Document
@@ -27,14 +26,14 @@ class Document
     {
         $this->document = new DOMDocument();
 
-        try {
-            $this->document->loadHTML(
-                Str::start($html, $this->encoding),
-                \LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD
-            );
-        } catch (Exception) {
-            //
-        }
+        $this->suppress();
+
+        $this->document->loadHTML(
+            Str::start($html, $this->encoding),
+            \LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD
+        );
+
+        $this->clear();
     }
 
     /**
@@ -71,6 +70,26 @@ class Document
     public function html(): string
     {
         return trim(substr($this->document->saveHTML(), 23));
+    }
+
+    /**
+     * Suppress the XML errors.
+     */
+    protected function suppress(): self
+    {
+        libxml_use_internal_errors(true);
+
+        return $this;
+    }
+
+    /**
+     * Clear the XML errors.
+     */
+    protected function clear(): self
+    {
+        libxml_clear_errors();
+
+        return $this;
     }
 
     /**
