@@ -16,7 +16,7 @@ Acorn Prettify contains a collection of modules to apply theme-agnostic front-en
 Install via Composer:
 
 ```sh
-$ composer require roots/acorn-prettify
+composer require roots/acorn-prettify
 ```
 
 ## Features
@@ -35,7 +35,13 @@ $ composer require roots/acorn-prettify
 Start by publishing the package configuration:
 
 ```sh
-$ wp acorn vendor:publish --tag=prettify-config
+wp acorn vendor:publish --tag=prettify-config
+```
+
+If this says there are no publishable tags, you may not have initialized Acorn yet:
+
+```sh
+wp acorn acorn:init storage
 ```
 
 Review the published config file to get an understanding of the optimizations that Acorn Prettify has enabled out of the box.
