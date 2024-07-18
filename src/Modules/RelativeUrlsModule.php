@@ -12,6 +12,7 @@ class RelativeUrlsModule extends AbstractModule
     protected function enabled(): bool
     {
         return parent::enabled()
+            && ! $this->app->runningInConsole()
             && ! isset($_GET['sitemap'])
             && ! in_array($GLOBALS['pagenow'], ['wp-login.php', 'wp-register.php'], true);
     }
