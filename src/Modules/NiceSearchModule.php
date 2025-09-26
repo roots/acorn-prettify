@@ -53,11 +53,26 @@ class NiceSearchModule extends AbstractModule
                 ! str_contains($request, '&') &&
                 wp_safe_redirect(get_search_link())
             ) {
-                exit;
+                $this->exit();
             }
         });
 
         return $this;
+    }
+
+    /**
+     * Ensure we exit cleanly in fastcgi or litespeed contexts.
+     * Adapted from https://github.com/symfony/symfony/blob/39c5025839a8610040e8aa190d962169552c41d4/src/Symfony/Component/HttpFoundation/Response.php#L393-L419
+     */
+    protected function exit(): never
+    {
+        if (\function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        } elseif (\function_exists('litespeed_finish_request')) {
+            litespeed_finish_request();
+        }
+
+        exit;
     }
 
     /**
