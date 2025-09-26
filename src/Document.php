@@ -24,7 +24,7 @@ class Document
      */
     public function __construct(string $html)
     {
-        $this->document = new DOMDocument();
+        $this->document = new DOMDocument;
 
         $this->suppress();
 
