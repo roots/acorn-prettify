@@ -69,7 +69,14 @@ class Document
      */
     public function html(): string
     {
-        return trim(substr($this->document->saveHTML(), 23));
+        $html = $this->document->saveHTML();
+
+        // Remove XML declaration/comment that libxml2 may add
+        // Handles both <?xml encoding="UTF-8"> and any comments libxml2 adds
+        $html = preg_replace('/^<\?xml[^>]*>\s*/i', '', $html);
+        $html = preg_replace('/^<!--[^>]*-->\s*/', '', $html);
+
+        return trim($html);
     }
 
     /**
