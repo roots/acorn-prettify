@@ -70,11 +70,7 @@ class Document
     public function html(): string
     {
         $html = $this->document->saveHTML();
-
-        // Remove XML declaration/comment that libxml2 may add
-        // Handles both <?xml encoding="UTF-8"> and any comments libxml2 adds
         $html = preg_replace('/^<\?xml[^>]*>\s*/i', '', $html);
-        // Use non-greedy match to handle comments containing > characters
         $html = preg_replace('/^<!--.*?-->\s*/s', '', $html);
 
         return trim($html);
