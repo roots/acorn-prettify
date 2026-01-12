@@ -15,25 +15,16 @@ class Document
     protected DOMDocument $document;
 
     /**
-     * The XML encoding tag.
-     */
-    protected string $encoding = '<?xml encoding="UTF-8">';
-
-    /**
      * Initialize the Document instance.
      */
     public function __construct(string $html)
     {
-        $this->document = new DOMDocument;
-
-        $this->suppress();
+        $this->document = new DOMDocument(encoding: 'UTF-8');
 
         $this->document->loadHTML(
-            Str::start($html, $this->encoding),
-            \LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD
+            $html,
+            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD | LIBXML_NOXMLDECL | LIBXML_NOWARNING | LIBXML_NOERROR
         );
-
-        $this->clear();
     }
 
     /**
@@ -69,31 +60,7 @@ class Document
      */
     public function html(): string
     {
-        $html = $this->document->saveHTML();
-        $html = preg_replace('/^<\?xml[^>]*>\s*/i', '', $html);
-        $html = preg_replace('/^<!--.*?-->\s*/s', '', $html);
-
-        return trim($html);
-    }
-
-    /**
-     * Suppress the XML errors.
-     */
-    protected function suppress(): self
-    {
-        libxml_use_internal_errors(true);
-
-        return $this;
-    }
-
-    /**
-     * Clear the XML errors.
-     */
-    protected function clear(): self
-    {
-        libxml_clear_errors();
-
-        return $this;
+        return trim($this->document->saveHTML());
     }
 
     /**
