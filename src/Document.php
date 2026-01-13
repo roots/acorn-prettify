@@ -5,7 +5,6 @@ namespace Roots\AcornPrettify;
 use DOMDocument;
 use DOMNodeList;
 use DOMXPath;
-use Illuminate\Support\Str;
 
 class Document
 {
