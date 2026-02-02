@@ -21,8 +21,8 @@ class Document
         $this->document = new DOMDocument(encoding: 'UTF-8');
 
         $this->document->loadHTML(
-            $html,
-            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD | LIBXML_NOXMLDECL | LIBXML_NOWARNING | LIBXML_NOERROR
+            '<html><body>'.$html.'</body></html>',
+            LIBXML_HTML_NODEFDTD | LIBXML_NOXMLDECL | LIBXML_NOWARNING | LIBXML_NOERROR
         );
     }
 
@@ -59,7 +59,12 @@ class Document
      */
     public function html(): string
     {
-        return trim($this->document->saveHTML());
+        $html = $this->document->saveHTML();
+
+        // Strip the html/body wrapper added during parsing
+        $html = preg_replace('~^.*?<body>|</body>.*$~si', '', $html);
+
+        return trim($html);
     }
 
     /**
