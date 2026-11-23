@@ -10,7 +10,7 @@ trait HasCollection
      * Create a collection from the given value.
      *
      * @param  mixed  $value
-     * @return Collection
+     * @return \Illuminate\Support\Collection
      */
     protected function collect($value = [])
     {
