@@ -30,7 +30,7 @@
   },
   "require-dev": {
     "laravel/pint": "1.20.0",
-    "roots/acorn": "^4.0"
+    "roots/acorn": "^6.3"
   },
   "extra": {
     "acorn": {
