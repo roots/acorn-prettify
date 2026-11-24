@@ -27,11 +27,12 @@ $ composer require roots/acorn-prettify
 
 ## Features
 
-| Feature            | Enabled by default    | Description                               |
-|--------------------|-----------------------|-------------------------------------------|
-| **Clean Up**       | ✅ &nbsp; Enabled | Cleaner WordPress markup |
-| **Nice Search**    | ✅ &nbsp; Enabled | Redirect search results from `/?s=query` to `/search/query/` |
-| **Relative URLs**  | ❌ &nbsp; Disabled | Change WordPress absolute URLs to relative URLs |
+| Feature                    | Enabled by default | Description                                                  |
+|----------------------------|--------------------|--------------------------------------------------------------|
+| **Clean Up**               | ✅ &nbsp; Enabled   | Cleaner WordPress markup                                     |
+| **Disable Random Content** | ✅ &nbsp; Enabled   | Disable the `/random/` redirects added in WordPress 7.2      |
+| **Nice Search**            | ✅ &nbsp; Enabled   | Redirect search results from `/?s=query` to `/search/query/` |
+| **Relative URLs**          | ❌ &nbsp; Disabled  | Change WordPress absolute URLs to relative URLs              |
 
 
 [See the config file for the full list of features](https://github.com/roots/acorn-prettify/blob/main/config/prettify.php).

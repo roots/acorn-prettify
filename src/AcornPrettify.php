@@ -26,6 +26,7 @@ class AcornPrettify
      */
     protected array $modules = [
         Modules\CleanUpModule::class,
+        Modules\DisableRandomContentModule::class,
         Modules\NiceSearchModule::class,
         Modules\RelativeUrlsModule::class,
     ];
