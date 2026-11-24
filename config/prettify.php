@@ -58,6 +58,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Disable Random Content
+    |--------------------------------------------------------------------------
+    |
+    | Enabling this option will disable the random content redirects added in
+    | WordPress 7.2, such as /random/ and /random/category/news/. Flush the
+    | rewrite rules after changing this option.
+    |
+    */
+
+    'disable-random-content' => [
+        /**
+         * Disable random content redirects.
+         */
+        'enabled' => true,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Nice Search
     |--------------------------------------------------------------------------
     |
